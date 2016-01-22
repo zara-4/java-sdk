@@ -1,31 +1,22 @@
 package Zara4.API.ImageProcessing;
 
 
-public class Request {
+public abstract class Request {
 
-  private String id;
-  private String imageName;
-  private long originalFileSize;
+  //
+  // Default request configuration
+  //
+  public OptimisationMode optimisationMode = OptimisationMode.COMPROMISE;
+  public OutputFormat outputFormat = OutputFormat.MATCH;
+  public ResizeMode resizeMode = ResizeMode.NONE;
+  public ColourEnhancement colourEnhancement = ColourEnhancement.NONE;
 
-  public Request(String id, String imageName, long originalFileSize) {
-    this.id = id;
-    this.imageName = imageName;
-    this.originalFileSize = originalFileSize;
-  }
-
-
-  public String id() {
-    return this.id;
-  }
-
-
-  public String imageName() {
-    return this.imageName;
-  }
-
-
-  public long originalFileSize() {
-    return this.originalFileSize;
-  }
+  
+  /**
+   * Execute this request and get the resulting processed image.
+   *
+   * @return The ProcessedImage resulting from this Request.
+   */
+  public abstract ProcessedImage process();
 
 }

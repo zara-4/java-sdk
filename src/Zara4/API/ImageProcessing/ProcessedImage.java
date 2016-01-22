@@ -1,14 +1,16 @@
 package Zara4.API.ImageProcessing;
 
 
-public class CompressedImage {
+public class ProcessedImage {
 
   protected Request request;
   protected long originalFileSize;
   protected long compressedFileSize;
 
 
-  public CompressedImage(Request request, long originalFileSize, long compressedFileSize) {
+  public ProcessedImage(
+      Request request, long originalFileSize, long compressedFileSize
+  ) {
     this.request = request;
     this.originalFileSize = originalFileSize;
     this.compressedFileSize = compressedFileSize;
