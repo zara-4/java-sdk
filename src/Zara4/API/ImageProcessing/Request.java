@@ -5,9 +5,9 @@ public class Request {
 
   private String id;
   private String imageName;
-  private String originalFileSize;
+  private long originalFileSize;
 
-  public Request(String id, String imageName, String originalFileSize) {
+  public Request(String id, String imageName, long originalFileSize) {
     this.id = id;
     this.imageName = imageName;
     this.originalFileSize = originalFileSize;
@@ -24,7 +24,7 @@ public class Request {
   }
 
 
-  public String originalFileSize() {
+  public long originalFileSize() {
     return this.originalFileSize;
   }
 
