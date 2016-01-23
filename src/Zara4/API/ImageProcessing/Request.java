@@ -1,7 +1,7 @@
 package Zara4.API.ImageProcessing;
 
-
 import Zara4.API.Client;
+
 
 public abstract class Request {
 
@@ -22,13 +22,14 @@ public abstract class Request {
   }
 
 
-  /**
-   * Execute this request and get the resulting processed image.
-   *
-   * @return The ProcessedImage resulting from this Request.
-   */
-  public ProcessedImage process(Client client) {
-    return client.processImage(this);
+  public Request(
+      OptimisationMode optimisationMode, OutputFormat outputFormat,
+      ResizeMode resizeMode, ColourEnhancement colourEnhancement
+  ) {
+    this.optimisationMode = optimisationMode;
+    this.outputFormat = outputFormat;
+    this.resizeMode = resizeMode;
+    this.colourEnhancement = colourEnhancement;
   }
 
 }

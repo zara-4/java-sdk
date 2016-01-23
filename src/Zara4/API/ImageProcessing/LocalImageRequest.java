@@ -8,8 +8,4 @@ public class LocalImageRequest extends Request {
     this.pathToImage = pathToImage;
   }
 
-  @Override
-  public ProcessedImage process() {
-    return new ProcessedImage(this, 100, 20);
-  }
 }

@@ -8,6 +8,10 @@ public class ProcessedImage {
   protected long compressedFileSize;
 
 
+  public ProcessedImage(Request request, Response response) {
+
+  }
+
   public ProcessedImage(
       Request request, long originalFileSize, long compressedFileSize
   ) {

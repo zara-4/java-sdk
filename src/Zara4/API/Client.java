@@ -3,8 +3,14 @@ package Zara4.API;
 
 import Zara4.API.Communication.AccessToken.AccessToken;
 import Zara4.API.Communication.Authentication.ApplicationAuthenticator;
+import Zara4.API.Communication.Config;
+import Zara4.API.Communication.Http.Method;
+import Zara4.API.Communication.Http.Response;
 import Zara4.API.ImageProcessing.ProcessedImage;
 import Zara4.API.ImageProcessing.Request;
+
+import java.io.IOException;
+import java.lang.*;
 
 public class Client {
 
@@ -42,10 +48,22 @@ public class Client {
   /**
    * Process the given image processing Request.
    *
-   * @param request The request to be processed.
+   * @param imageProcessingRequest The request to be processed.
    * @return The ProcessedImage.
    */
-  public ProcessedImage processImage(Request request) {
+  public ProcessedImage processImage(Request imageProcessingRequest) {
+
+    String url = Config.apiEndpointUrl() + "/api/image-processing/optimise";
+
+    Zara4.API.Communication.Http.Request httpRequest =
+        new Zara4.API.Communication.Http.Request(url, Method.POST);
+
+    try {
+      Response httpResponse = httpRequest.execute();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
     return null;
   }
 
