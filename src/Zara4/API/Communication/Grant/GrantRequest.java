@@ -5,9 +5,7 @@ import Zara4.API.Communication.Http.Form.FormData;
 import Zara4.API.Communication.Http.Method;
 import Zara4.API.Communication.Http.Request;
 import Zara4.API.Communication.Http.Response;
-import Zara4.API.Communication.Util;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
@@ -49,10 +47,7 @@ abstract public class GrantRequest {
     try {
       Response httpResponse = httpRequest.execute();
 
-
-      JSONParser parser = new JSONParser();
-      Object obj = obj = parser.parse(httpResponse.content);
-      JSONObject jsonObj = (JSONObject)obj;
+      JSONObject jsonObj = httpResponse.contentAsJson();
 
       String accessToken = jsonObj.get("access_token").toString();
       String expiresIn = jsonObj.get("expires_in").toString();

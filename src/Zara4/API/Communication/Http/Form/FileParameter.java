@@ -22,13 +22,19 @@ public class FileParameter extends Parameter {
   public void appendTo(OutputStream output, PrintWriter writer, String boundary) throws IOException {
     // Send binary file.
     writer.append("--").append(boundary).append(CRLF);
-    writer.append("Content-Disposition: form-data; name=\"binaryFile\"; filename=\"" + this.file.getName() + "\"").append(CRLF);
+    writer.append("Content-Disposition: form-data; name=\"" + this.name + "\"; filename=\"" + this.file.getName() + "\"").append(CRLF);
     writer.append("Content-Type: " + URLConnection.guessContentTypeFromName(this.file.getName())).append(CRLF);
     writer.append("Content-Transfer-Encoding: binary").append(CRLF);
     writer.append(CRLF).flush();
     Files.copy(this.file.toPath(), output);
     output.flush(); // Important before continuing with writer!
     writer.append(CRLF).flush(); // CRLF is important! It indicates end of boundary.
+  }
+
+
+  @Override
+  public String toString() {
+    return "FILE PARAMETER - " + this.name + " => " + this.file.getPath();
   }
 
 }

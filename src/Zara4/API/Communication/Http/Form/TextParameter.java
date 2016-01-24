@@ -22,4 +22,10 @@ public class TextParameter extends Parameter {
     writer.append(CRLF).append(this.value).append(CRLF).flush();
   }
 
+
+  @Override
+  public String toString() {
+    return "TEXT PARAMETER - " + this.name + " => " + this.value;
+  }
+
 }

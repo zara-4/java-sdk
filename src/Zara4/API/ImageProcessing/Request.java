@@ -1,6 +1,8 @@
 package Zara4.API.ImageProcessing;
 
-import Zara4.API.Client;
+import Zara4.API.Communication.Http.Form.FormData;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public abstract class Request {
@@ -30,6 +32,16 @@ public abstract class Request {
     this.outputFormat = outputFormat;
     this.resizeMode = resizeMode;
     this.colourEnhancement = colourEnhancement;
+  }
+
+
+  public FormData generateFormData() {
+    Map<String,String> data = new HashMap<String,String>();
+    data.put("optimisation-mode", this.optimisationMode.toString());
+    data.put("output-format", this.outputFormat.toString());
+    data.put("resize-mode", this.resizeMode.toString());
+    data.put("colour-enhancement", this.resizeMode.toString());
+    return new FormData(data);
   }
 
 }
