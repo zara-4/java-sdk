@@ -19,7 +19,7 @@ public class ImageProcessingTest extends TestCase {
     String fileName = Long.toHexString(System.currentTimeMillis()) + ".jpg";
     String path = "/tmp/" + fileName;
 
-    processedImage.downloadTo(path);
+    this.apiClient.downloadProcessedImage(processedImage, path);
 
     assertTrue(processedImage.compressionRatio() < 1);
     assertTrue(processedImage.compressionRatio() > 0);
@@ -37,7 +37,7 @@ public class ImageProcessingTest extends TestCase {
     String fileName = Long.toHexString(System.currentTimeMillis()) + ".jpg";
     String path = "/tmp/" + fileName;
 
-    processedImage.downloadTo(path);
+    this.apiClient.downloadProcessedImage(processedImage, path);
 
     assertTrue(processedImage.originalFileSize == 402896);
     assertTrue(processedImage.compressedFileSize <= 62511);

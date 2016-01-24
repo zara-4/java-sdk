@@ -72,10 +72,17 @@ abstract public class GrantRequest {
 
     Map<String, String> data = new HashMap<String, String>();
 
+    String scopes = "";
+    String delim = "";
+    for (String scope : this.scopes) {
+      scopes += delim + scope;
+      delim = ",";
+    }
+
     data.put("grant_type", this.grantType());
     data.put("client_id", this.clientId);
     data.put("client_secret", this.clientSecret);
-    //data.put("scope", String.join(",", this.scopes));
+    data.put("scope", scopes);
 
     return data;
   }

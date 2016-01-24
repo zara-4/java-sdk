@@ -14,8 +14,12 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.*;
+import java.net.URL;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
 
 public class Client {
 
@@ -45,6 +49,8 @@ public class Client {
 
     ApplicationAuthenticator authenticator = new ApplicationAuthenticator(
         apiClientId, apiClientSecret);
+
+    authenticator.withImageProcessing().withUsage();
 
     this.accessToken = authenticator.acquireAccessToken();
   }
@@ -105,4 +111,33 @@ public class Client {
       throw new UnknownServerErrorException();
     }
   }
+
+
+  /**
+   * Download the given ProcessedImage and save it to the given path.
+   *
+   * @param processedImage The ProcessedImage to be downloaded.
+   * @param savePath The path where the image should be saved.
+   */
+  public void downloadProcessedImage(
+      ProcessedImage processedImage, String savePath
+  ) {
+    String url = processedImage.fileUrls[0];
+
+    try {
+
+      if(this.accessToken != null) {
+        url += "?access_token=" + this.accessToken.token();
+      }
+
+      URL website = new URL(url);
+      ReadableByteChannel rbc = Channels.newChannel(website.openStream());
+      FileOutputStream fos = new FileOutputStream(savePath);
+      fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
 }

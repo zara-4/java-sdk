@@ -14,8 +14,7 @@ public class TestCase {
   @Before
   public void setUp() throws Zara4.API.ImageProcessing.Exception {
     Config.enterDevelopmentMode();
-    //this.apiClient = new Client(apiClientId, apiClientSecret);
-    this.apiClient = new Client();
+    this.apiClient = new Client(apiClientId, apiClientSecret);
   }
 
 }

@@ -14,6 +14,7 @@ public abstract class Authenticator {
   public Authenticator(String clientId, String clientSecret) {
     this.clientId = clientId;
     this.clientSecret = clientSecret;
+    this.scopes = new ArrayList<String>();
   }
 
 

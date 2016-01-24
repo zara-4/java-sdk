@@ -1,22 +1,14 @@
 package Zara4.API.ImageProcessing;
 
-
-import Zara4.API.Communication.Http.Method;
-import Zara4.API.Communication.Http.Response;
 import org.json.simple.JSONObject;
-
-import java.io.*;
 import java.lang.*;
-import java.net.URL;
-import java.nio.channels.Channels;
-import java.nio.channels.ReadableByteChannel;
-import java.nio.charset.StandardCharsets;
+
 
 public class ProcessedImage {
 
   protected Request request;
   protected String requestId;
-  protected String[] fileUrls;
+  public String[] fileUrls;
   protected long originalFileSize;
   protected long compressedFileSize;
 
@@ -31,35 +23,6 @@ public class ProcessedImage {
     this.requestId = requestId;
     this.originalFileSize = originalFileSize;
     this.compressedFileSize = compressedFileSize;
-  }
-
-
-  /**
-   * Save the compressed image to the given save path.
-   *
-   * @param savePath Where the compressed image should be downloaded to
-   */
-  public void downloadTo(String savePath) {
-    String url = this.fileUrls[0];
-    //Zara4.API.Communication.Http.Request httpRequest =
-    //    new Zara4.API.Communication.Http.Request(url, Method.GET);
-
-    try {
-      //Response response = httpRequest.execute();
-
-      //Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(savePath)));
-      //writer.write(response.content);
-
-
-      URL website = new URL(url);
-      ReadableByteChannel rbc = Channels.newChannel(website.openStream());
-      FileOutputStream fos = new FileOutputStream(savePath);
-      fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
-
-
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
   }
 
 
