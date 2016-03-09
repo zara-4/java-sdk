@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.zara4.api.communication.http.ExecutionTest
+-------------------------------------------------------------------------------
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.zara4.api.communication.http.ExecutionTest
