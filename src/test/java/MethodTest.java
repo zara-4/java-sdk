@@ -1,6 +1,4 @@
-package com.zara4.api.communication.http;
-
-import com.zara4.api.TestCase;
+import com.zara4.api.communication.http.Method;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
@@ -13,7 +11,6 @@ public class MethodTest extends TestCase {
     assertEquals(Method.POST.toString(), "POST");
     assertEquals(Method.PUT.toString(), "PUT");
     assertEquals(Method.DELETE.toString(), "DELETE");
-
   }
 
 }
