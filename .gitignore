@@ -3,3 +3,5 @@
 *~
 out
 *.class
+zara4-sdk.jar
+/target

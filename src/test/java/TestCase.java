@@ -1,5 +1,4 @@
-package com.zara4.api;
-
+import com.zara4.api.Client;
 import com.zara4.api.communication.Config;
 import org.junit.Before;
 
