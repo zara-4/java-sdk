@@ -13,7 +13,7 @@ The Zara 4 API uses OAuth authentication, using access tokens to grant access. A
 
 Example API client setup
 ```java
-import Zara4.API.Client;
+import com.zara4.api.Client;
 
 Client apiClient = Client(API_CLIENT_ID, API_CLIENT_SECRET);
 ```
