@@ -35,9 +35,9 @@ To process images on your local machine you should use a LocalImageRequest. This
 
 Example usage
 ```java
-import Zara4.API.Client;
-import Zara4.API.ImageProcessing.LocalImageRequest;
-import Zara4.API.ImageProcessing.ProcessedImage;
+import com.zara4.api.client;
+import com.zara4.api.imageprocessing.LocalImageRequest;
+import com.zara4.api.imageprocessing.ProcessedImage;
 
 Client apiClient = Client(API_CLIENT_ID, API_CLIENT_SECRET);
 LocalImageRequest originalImage = new LocalImageRequest("/path/to/original-image.jpg");
@@ -52,9 +52,9 @@ To process images from a remote location (such as a website url), you should use
 
 Example usage
 ```java
-import Zara4.API.Client;
-import Zara4.API.ImageProcessing.RemoteImageRequest;
-import Zara4.API.ImageProcessing.ProcessedImage;
+import com.zara4.api.Client;
+import com.zara4.api.imageprocessing.RemoteImageRequest;
+import com.zara4.api.imageprocessing.ProcessedImage;
 
 Client apiClient = Client(API_CLIENT_ID, API_CLIENT_SECRET);
 RemoteImageRequest originalImage = new RemoteImageRequest("https://example.com/original-image.jpg");
@@ -69,8 +69,8 @@ You can customise how your images are processed with Zara 4 by altering your req
 
 Example usage
 ```java
-import Zara4.API.Client;
-import Zara4.API.ImageProcessing.*;
+import com.zara4.api.Client;
+import com.zara4.api.imageprocessing.*;
 
 Client apiClient = Client(API_CLIENT_ID, API_CLIENT_SECRET);
 LocalImageRequest originalImage = new LocalImageRequest("/path/to/original-image.jpg");
